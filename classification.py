@@ -17,7 +17,7 @@ from sklearn.svm import SVC
 # ------------------------------------------------------
 
 # Updated file path
-df = pd.read_csv(r"C:\Users\Ripple\Desktop\PROJECT\drug200.csv")
+df = pd.read_csv(r"C:\Users\Ripple\Desktop\PROJECT\PROJECT 1\drug200.csv")
 
 st.title("💊 Drug Classification ML App")
 st.write("Exploring drug200.csv and building ML models.")
@@ -33,7 +33,7 @@ st.dataframe(df.head())
 # ------------------------------------------------------
 # Convert categorical columns
 # ------------------------------------------------------
-cat_cols = ['Sex', 'BP', 'Cholesterol', 'Drug']
+cat_cols = ["Sex", "BP", "Cholesterol", "Drug"]
 df[cat_cols] = df[cat_cols].astype("category")
 
 
@@ -42,12 +42,12 @@ df[cat_cols] = df[cat_cols].astype("category")
 # ------------------------------------------------------
 st.subheader("📊 Scatterplot")
 fig1, ax1 = plt.subplots()
-sns.scatterplot(data=df, x='Na_to_K', y='BP', hue='Drug', marker='*')
+sns.scatterplot(data=df, x="Na_to_K", y="BP", hue="Drug", marker="*")
 st.pyplot(fig1)
 
 st.subheader("📦 Boxplot")
 fig2, ax2 = plt.subplots()
-sns.boxplot(data=df, x='Drug', y='Na_to_K')
+sns.boxplot(data=df, x="Drug", y="Na_to_K")
 st.pyplot(fig2)
 
 st.subheader("🔥 Correlation Heatmap")
@@ -83,7 +83,7 @@ models = {
     "KNN": KNeighborsClassifier(),
     "Decision Tree": DecisionTreeClassifier(),
     "Random Forest": RandomForestClassifier(),
-    "SVM": SVC()
+    "SVM": SVC(),
 }
 
 scores = {}
@@ -95,9 +95,9 @@ if st.button("Train Models"):
         pred = model.predict(X_test)
         scores[name] = {
             "Accuracy": accuracy_score(y_test, pred),
-            "Precision": precision_score(y_test, pred, average='weighted'),
-            "Recall": recall_score(y_test, pred, average='weighted'),
-            "F1-score": f1_score(y_test, pred, average='weighted'),
+            "Precision": precision_score(y_test, pred, average="weighted"),
+            "Recall": recall_score(y_test, pred, average="weighted"),
+            "F1-score": f1_score(y_test, pred, average="weighted"),
         }
 
     st.subheader("📈 Model Performance")
