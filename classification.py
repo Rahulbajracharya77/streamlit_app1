@@ -17,7 +17,7 @@ from sklearn.svm import SVC
 # ------------------------------------------------------
 
 # Updated file path
-df = pd.read_csv(r"C:\Users\Ripple\Desktop\PROJECT\PROJECT 1\drug200.csv")
+df = pd.read_csv("drug200.csv")
 
 st.title("💊 Drug Classification ML App")
 st.write("Exploring drug200.csv and building ML models.")
